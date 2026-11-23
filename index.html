@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHAHIDVERSE</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        -45deg,
+        #09001f,
+        #1a0645,
+        #001f3f,
+        #30004d
+    );
+    background-size: 400% 400%;
+    animation: galaxy 10s ease infinite;
+    color: white;
+}
+
+@keyframes galaxy {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+  padding: 25px 10px;
+  background: #202943;
+}
+
+h1 {
+  color: #00e5ff;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid #8b5cf6;
+    border-radius: 18px;
+    padding: 20px;
+    margin: 15px 0;
+    color: white;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #a855f7;
+}
+
+button {
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 18px #ec4899;
+}
+
+#result {
+  margin-top: 20px;
+  padding: 15px;
+  color: #ffe082;
+  font-size: 18px;
+}
+header h1 {
+    color: #ffffff;
+    text-shadow: 0 0 10px #a855f7,
+                 0 0 20px #a855f7,
+                 0 0 40px #ec4899;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 10px #a855f7;
+    }
+    to {
+        text-shadow: 0 0 25px #ec4899,
+                     0 0 45px #a855f7;
+    }
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+}
+.search-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+}
+
+.search-box input {
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid #a855f7;
+    outline: none;
+    font-size: 15px;
+    max-width: 220px;
+}
+#leaderboard {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#leaderboard p {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+    margin: 8px 0;
+    border: 1px solid #8b5cf6;
+}
+
+#leaderboard p:nth-of-type(1) {
+    border: 2px solid gold;
+    box-shadow: 0 0 12px gold;
+}
+
+#leaderboard p:nth-of-type(2) {
+    border: 2px solid silver;
+}
+
+#leaderboard p:nth-of-type(3) {
+    border: 2px solid #cd7f32;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌌 SHAHIDVERSE</h1>
+    <h2>Welcome to My Universe! 👑</h2>
+    <p>Entertainment, Fun & Excitement — All in One Place!</p>
+    <button onclick="goHome()">🚀 Enter SHAHIDVERSE</button>
+</header>
+<h1>🌌 SHAHIDVERSE</h1>
+<p>Welcome to my world of entertainment!</p>
+<nav class="navbar">
+    <button onclick="goHome()">🏠 Home</button>
+    <button onclick="joke()">😂 Jokes</button>
+    <button onclick="quiz()">🧠 Quiz</button>
+    <button onclick="riddle()">🧩 Riddles</button>
+    <button onclick="fact()">✨ Facts</button>
+</nav>
+<div class="container">
+<div class="search-box">
+    <input type="text" id="searchInput"
+        placeholder="🔍 Search entertainment...">
+    <button onclick="searchContent()">Search</button>
+</div>
+
+<div class="card">
+<h2>😂 Funny Jokes</h2>
+<button onclick="joke()">Explore</button>
+</div>
+
+<div class="card">
+<h2>🧠 Quiz Challenge</h2>
+<button onclick="quiz()">Play Quiz</button>
+</div>
+
+<div class="card">
+<h2>🧩 Riddles</h2>
+<button onclick="riddle()">Explore</button>
+</div>
+
+<div class="card">
+<h2>✨ Interesting Facts</h2>
+<button onclick="fact()">Discover</button>
+</div>
+
+<div id="result">Choose something to have fun! 😎</div>
+<div class="card">
+    <h2>🏆 SHAHIDVERSE Leaderboard</h2>
+    <input type="text" id="playerName"
+        placeholder="Enter your player name">
+    <button onclick="showLeaderboard()">
+        View Leaderboard
+    </button>
+    <div id="leaderboard"></div>
+</div>
+
+
+<script>
+alert("SHAHIDVERSE JavaScript is working!");
+function joke() {
+    const jokes = [
+        "Why was the computer cold? Because it left its Windows! 😂",
+        "Why did the student eat his homework? Because the teacher said it was a piece of cake! 🎂",
+        "What do you call a sleeping dinosaur? A dino-snore! 🦖",
+        "Why did the phone wear glasses? It lost its contacts! 🤓",
+        "What is a computer's favourite snack? Microchips! 🍟",
+        "Why was the math book sad? It had too many problems! 📚",
+        "What do you call a fake noodle? An impasta! 🍝",
+        "Why did the bicycle fall over? It was two-tired! 🚲",
+        "What do you call a bear with no teeth? A gummy bear! 🐻",
+        "Why can't your nose be 12 inches long? Because then it would be a foot! 🤣"
+    ];
+
+    const random = Math.floor(Math.random() * jokes.length);
+
+    document.getElementById("result").innerText = jokes[random];
+}
+
+
+let currentQuestion = 0;
+let score = 0;
+const questions = [
+    {
+        question: "What is the capital of India?",
+        options: ["Mumbai", "New Delhi", "Chennai", "Kolkata"],
+        correct: 1
+    },
+    {
+        question: "Which planet is called the Red Planet?",
+        options: ["Earth", "Venus", "Mars", "Jupiter"],
+        correct: 2
+    },
+    {
+        question: "How many days are in a leap year?",
+        options: ["364", "365", "366", "367"],
+        correct: 2
+    },
+    {
+        question: "Which animal is known as the King of the Jungle?",
+        options: ["Tiger", "Lion", "Elephant", "Wolf"],
+        correct: 1
+    }
+];
+
+function quiz() {
+score = 0;
+ currentQuestion = 0;
+    showQuestion();
+}
+
+function showQuestion() {
+    let q = questions[currentQuestion];
+
+    let html = `<h2>${q.question}</h2>`;
+
+    q.options.forEach((option, index) => {
+        html += `<button onclick="answer(${index})">${option}</button><br><br>`;
+    });
+
+    document.getElementById("result").innerHTML = html;
+}
+
+function answer(choice) {
+    let q = questions[currentQuestion];
+
+    if (choice === q.correct) {
+    score++;
+        document.getElementById("result").innerHTML =
+        "🎉 Correct Answer!";
+    } else {
+        document.getElementById("result").innerHTML =
+        "❌ Wrong Answer! Correct answer: " + q.options[q.correct];
+    }
+
+    document.getElementById("result").innerHTML +=
+    `<br><br><button onclick="nextQuestion()">Next Question ➡️</button>`;
+}
+
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+    document.getElementById("result").innerHTML =
+        "🏆 Quiz Completed!" +
+        "<br><br>🎯 Your Score: " + score +
+        " / " + questions.length +
+        "<br><br>👑 Great job!" +
+"<br><br><button onclick='quiz()'>🔄 Play Again</button>";
+        saveScore();
+    }
+}
+
+
+
+const riddles = [
+    { q: "What has keys but cannot open locks?", a: "A piano 🎹" },
+    { q: "What has hands but cannot clap?", a: "A clock 🕒" },
+    { q: "What gets wetter as it dries?", a: "A towel 🧻" },
+    { q: "What has a neck but no head?", a: "A bottle 🍾" },
+    { q: "What has one eye but cannot see?", a: "A needle 🪡" }
+];
+
+function riddle() {
+    const random = Math.floor(Math.random() * riddles.length);
+
+    document.getElementById("result").innerHTML =
+        riddles[random].q +
+        '<br><br><button onclick="showRiddleAnswer(' + random + ')">Show Answer</button>';
+}
+
+function showRiddleAnswer(index) {
+    document.getElementById("result").innerHTML +=
+        "<br><br>Answer: " + riddles[index].a;
+}
+
+
+const facts = [
+    "🐙 Octopuses have three hearts!",
+    "🌍 Earth is the only known planet with life.",
+    "🦈 Sharks existed before trees!",
+    "🍯 Honey can last for thousands of years.",
+    "🌙 The Moon moves away from Earth slowly.",
+    "🦋 Butterflies taste using their feet!",
+    "🐬 Dolphins use unique whistles to identify each other.",
+    "☀️ Sunlight takes about 8 minutes to reach Earth.",
+    "🧠 The human brain contains billions of neurons.",
+    "🪐 Saturn has a spectacular ring system!"
+];
+
+function fact() {
+    const random = Math.floor(Math.random() * facts.length);
+
+    document.getElementById("result").innerHTML =
+        facts[random] +
+        '<br><br><button onclick="fact()">Next Fact ➡️</button>';
+}
+const quotes = [
+    "Believe in yourself! 🌟",
+    "Dream big and work hard! 🚀",
+    "Every day is a new opportunity! ✨",
+    "Never stop learning! 🧠",
+    "Make today amazing! 👑"
+];
+
+function dailyQuote() {
+    const random = Math.floor(Math.random() * quotes.length);
+
+    document.getElementById("result").innerText =
+        "💬 " + quotes[random];
+}
+function goHome() {
+    document.getElementById("result").innerHTML =
+        "👑 Welcome back to SHAHIDVERSE! Enjoy exploring! 😎";
+}
+function searchContent() {
+    const search = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    if (search.includes("joke")) {
+        joke();
+    } else if (search.includes("quiz")) {
+        quiz();
+    } else if (search.includes("riddle")) {
+        riddle();
+    } else if (search.includes("fact")) {
+        fact();
+    } else if (search.includes("home")) {
+        goHome();
+    } else {
+        document.getElementById("result").innerText =
+            "😕 No matching section found. Try jokes, quiz, riddles or facts!";
+    }
+}
+function saveScore() {
+    const name = document.getElementById("playerName").value.trim();
+
+    if (name === "") {
+        alert("Please enter your player name!");
+        return;
+    }
+
+    let leaderboard = JSON.parse(
+        localStorage.getItem("shahidLeaderboard") || "[]"
+    );
+
+    leaderboard.push({
+        name: name,
+        score: score
+    });
+
+    leaderboard.sort((a, b) => b.score - a.score);
+
+    localStorage.setItem(
+        "shahidLeaderboard",
+        JSON.stringify(leaderboard)
+    );
+
+    alert("🏆 Score saved successfully!");
+}
+
+function showLeaderboard() {
+    let leaderboard = JSON.parse(
+        localStorage.getItem("shahidLeaderboard") || "[]"
+    );
+
+    const display = document.getElementById("leaderboard");
+
+    if (leaderboard.length === 0) {
+        display.innerHTML = "No scores yet. Play the quiz first! 😎";
+        return;
+    }
+
+    display.innerHTML = "<h3>🏆 Top Players</h3>";
+
+    leaderboard.slice(0, 10).forEach((player, index) => {
+        display.innerHTML +=
+            "<p>" + (index + 1) + ". 👑 " +
+            player.name + " — " + player.score +
+            " points</p>";
+    });
+}
+
+    
+</script>                                                                                                                                                                                                                          
+<button onclick="goHome()">🏠 Home</button>
+
+</body>
+</html>
